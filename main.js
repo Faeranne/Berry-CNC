@@ -8,6 +8,7 @@
 //===============================
 
 var gpio = require('gpio');
+var gcode = require('./gcode.js');
 
 //-------------------------------
 //All configuration options are below
@@ -91,4 +92,15 @@ function home(){
   }
 }
 
+function move(line){
+  console.log(line);
+}
+
+function set(event,code){
+  console.log("event "+event+", Code "+code);
+}
+
+function print(file){
+  gcode.readcode(file,move,home,set);
+}
 
